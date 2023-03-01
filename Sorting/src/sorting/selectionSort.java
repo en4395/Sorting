@@ -5,13 +5,13 @@ import java.util.Arrays;
 public class selectionSort {
 
 	int [] array;
-	int [] ogArray;
+	int [] origArray;
 	int last;
 	public selectionSort(int [] array) 
 	{
 		this.array=array.clone();
 		last=array.length-1;
-		this.ogArray=array.clone();
+		this.origArray=array.clone();
 	}
 	
 	public void swap(int i, int j)
@@ -26,10 +26,10 @@ public class selectionSort {
 		long start, stop;
 		int max;
 		start=System.nanoTime();
-		for(int i=last; i>=0; i--) //iterate through array, backwards
+		for(int i=last; i>=0; i--)	//Iterate through array, backwards
 		{
 			max=i;
-			for(int j=0; j<=i; j++) //iterate forward, looking for max element
+			for(int j=0; j<=i; j++)	//Iterate forward, looking for max element
 			{
 				if(array[j]>array[max])
 				{
@@ -39,15 +39,15 @@ public class selectionSort {
 			swap(i, max);
 		}
 		stop=System.nanoTime();
-		System.out.println("SELECTION SORT TOOK: "+(stop-start));
+		System.out.println("SELECTION SORT TOOK:\t\t"+(stop-start));
 		
 	}
 
-	public void checkSort()
+	public void checkSort()	//Uses Arrays.sort() and Arrays.equals() to sort a copy of original array and compare to sort
 	{
 		System.out.println();
-		Arrays.sort(ogArray);
-		if(Arrays.equals(ogArray, array))
+		Arrays.sort(origArray);
+		if(Arrays.equals(origArray, array))
 			System.out.println("SelectionSort worked!");
 		else
 			System.out.println("SelectionSort bombed!");

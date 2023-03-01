@@ -1,3 +1,8 @@
+//QuickSort
+//In this implementation of QuickSort, the middle element in the array is chosen as the pivot.
+//The n^2 worst case performance of QuickSort haunts me, though I understand that it's unlikely. 
+//I'm going to do a median-of-three implementation at some point.
+
 package sorting;
 
 import java.util.Arrays;
@@ -5,11 +10,11 @@ import java.util.Arrays;
 public class quickSort {
 
 	int [] array;
-	int [] ogArray;
+	int [] origArray;
 	public quickSort(int [] array) 
 	{
 		this.array=array.clone();
-		this.ogArray=array.clone();
+		this.origArray=array.clone();
 	}
 
 	public int partition(int [] arr, int left, int right, int pivot)
@@ -33,15 +38,15 @@ public class quickSort {
 	
 	public int findPivot(int left, int right)
 	{
-		return ((left+right)/2);
+		return ((left+right)/2); 
 	}
 	
 	public void sort(int [] arr, int left, int right)
 	{
-		int pivotIndex=findPivot(left, right); //select middle element as pivot
-		swap(arr, right, pivotIndex); //send pivot to last position of array
-		int k=partition(arr, left-1, right, arr[right]); //
-		swap(arr, k, right); //put pivot in place
+		int pivotIndex=findPivot(left, right);	//Select middle element as pivot
+		swap(arr, right, pivotIndex);	//Send pivot to last position of array
+		int k=partition(arr, left-1, right, arr[right]); 
+		swap(arr, k, right); //Put pivot in place
 		//k is now first position in right subarray
 		if((k-left)>1)
 			sort(arr, left, k-1);
@@ -55,14 +60,14 @@ public class quickSort {
 		start=System.nanoTime();
 		sort(array, 0, (array.length-1));
 		stop=System.nanoTime();
-		System.out.println("QUICKSORT TOOK: "+(stop-start));
+		System.out.println("QUICKSORT TOOK:\t\t\t"+(stop-start));
 	}
 	
-	public void checkSort()
+	public void checkSort()	//Uses Arrays.sort() and Arrays.equals() to sort a copy of original array and compare to sort
 	{
 		System.out.println();
-		Arrays.sort(ogArray);
-		if(Arrays.equals(ogArray, array))
+		Arrays.sort(origArray);
+		if(Arrays.equals(origArray, array))
 			System.out.println("QuickSort worked!");
 		else
 			System.out.println("QuickSort bombed!");
