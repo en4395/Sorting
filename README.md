@@ -9,5 +9,5 @@ the time taken to perform the sort.
  circumstances.
 
 OBJECTIVES:
-- To implement some of the algorithms discussed in class, and to observe the effects of different design choices
+- To implement some of the algorithms discussed in class, and to observe the effects of design decisions.
 - To witness the performance of these algorithms in different situations, and to develop intuition in choosing sorting appropriate algorithms for specific applications.
