@@ -1,7 +1,7 @@
 # Sorting algorithms
 Implementations of sorting algorithms with different asymptotic behaviours
 
-OVERVIEW: 
+OVERVIEW: <br>
 <br>This program contains implementations of insertion sort, selection sort, quicksort, merge sort, and (LSB) radix sort. 
 <br>Driver creates a random array of a specified length and range and instatiates each of the sort classes. The sort() methods for the different classes print 
 the time taken to perform the sort. 
